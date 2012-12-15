@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 2122530b4f92b7ebf8f7aba18495c2e7)
+version = "1.0"
+description = "Foo"
+requires = "foo"
+archive(byte) = "foo_baz.cma"
+archive(byte, plugin) = "foo_baz.cma"
+archive(native) = "foo_baz.cmxa"
+archive(native, plugin) = "foo_baz.cmxs"
+exists_if = "foo_baz.cma"
+# OASIS_STOP
+

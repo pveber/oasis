@@ -1,0 +1,43 @@
+OASISFormat:  0.3
+OCamlVersion: >= 3.12
+Name:         foo
+Version:      1.0
+Synopsis:     Foo
+Authors:      Philippe Veber
+License:      GPL
+LicenseFile:  LICENCE
+Plugins:      META (0.3), DevFiles (0.3)
+BuildTools:   ocamlbuild
+
+
+Library foo
+  Path:    src
+  Modules: M
+
+Library foo_bar
+  Path:			src/bar
+  Pack:			true
+  Modules:		A
+#  FindlibParent:	foo
+#  FindlibName:		bar
+  BuildDepends:		foo
+
+Library foo_baz
+  Path:			src/baz
+  Pack:			true
+  Modules:		B
+#  FindlibParent:	foo
+#  FindlibName:		baz
+  BuildDepends:		foo
+
+Library foo_qux
+  Path: src/qux
+  Modules: C
+  BuildDepends:		foo
+
+Executable test
+  Path:         src/test
+  MainIs:       test.ml
+  BuildDepends: foo_bar#, foo_baz, foo_qux
+  BuildTools:   ocamlbuild
+  Install: false
